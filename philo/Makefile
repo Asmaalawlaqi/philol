@@ -8,7 +8,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 
 
-COLOR_RESET = \033[0m
+COLOR_RESET = \033[0m   // باش فورمات
 COLOR_PINK = \033[95m
 COLOR_YELLOW = \033[93m
 
@@ -19,7 +19,7 @@ $(NAME): $(OBJ)
 	@echo "$(COLOR_PINK)Build successful$(COLOR_RESET)"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ // ماينس سي  معاناها كمبايلر 
 
 clean:
 	@rm -rf $(OBJ)
