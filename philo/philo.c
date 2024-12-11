@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 {
 	t_data			data;
 	t_philo			philos[PHILO_MAX];
-	pthread_mutex_t	forks[PHILO_MAX];
+	pthread_mutex_t	forks[PHILO_MAX]; // كم الفاليو  
 
 	if (ac < 5 || ac > 6)
 		return (write(2, "4 || 5 args expected\n", 21), 1);
