@@ -28,22 +28,22 @@ void	eating(t_philo *philo)
 {
 	pthread_mutex_lock(philo->l_fork);
 	print_action("has taken a fork 🍴", philo, philo->id);
-	if (philo->philos_n == 1)
+	if (philo->philos_n == 1)  // اذا كان عندنا    فيلو واحد  بنقوله نام لين ماتموت 
 	{
 		ft_usleep(philo->die_time);
 		pthread_mutex_unlock(philo->l_fork);
 		return ;
 	}
-	pthread_mutex_lock(philo->r_fork);
-	print_action("has taken a fork 🍴", philo, philo->id);
-	philo->eating = 1;
+	pthread_mutex_lock(philo->r_fork);  // لوك للفوركس 
+	print_action("has taken a fork 🍴", philo, philo->id); 
+	philo->eating = 1; // 0  ياكل واحد  ماياكل 
 	print_action("is eating 🍽️ 😋", philo, philo->id);
 	pthread_mutex_lock(philo->meal_lock);
 	philo->last_meal = get_current();
-	philo->meals_eaten++;
+	philo->meals_eaten++;  // يزيد الاكل 
 	pthread_mutex_unlock(philo->meal_lock);
 	ft_usleep(philo->eat_time);
-	philo->eating = 0;
-	pthread_mutex_unlock(philo->r_fork);
+	philo->eating = 0; // يوم يخلص 
+	pthread_mutex_unlock(philo->r_fork); // يفتح كل مايخلص الاكشن 
 	pthread_mutex_unlock(philo->l_fork);
 }
