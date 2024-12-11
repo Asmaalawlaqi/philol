@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+ // we have 2 round  each philo need 1 time eating 
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -25,18 +25,18 @@
 
 typedef struct s_philo
 {
-	pthread_t		thread;  // main theried 
-	int				id;
-	int				eating;
-	int				meals_eaten;
-	size_t			last_meal;
-	size_t			eat_time;
-	size_t			sleep_time;
-	size_t			die_time;
-	size_t			start_time;
-	int				philos_n;
-	int				num_times_to_eat;
-	int				*dead;
+	pthread_t		thread;  // main theried   //  collect data for each philo   // 
+	int				id; // id for the philo
+	int				eating; // moood for eating and return int 
+	int				meals_eaten;// how many he eat
+	size_t			last_meal; // 
+	size_t			eat_time; // 
+	size_t			sleep_time; // not too much sleeping 
+	size_t			die_time;   // data for each philo 
+	size_t			start_time; // when did we start 
+	int				philos_n; // how many philo 
+	int				num_times_to_eat; // time   to eat 
+	int				*dead; // if it was dead  true faluse 
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;  // the rules to mange the thried 
 	pthread_mutex_t	*write_lock;
@@ -48,9 +48,9 @@ typedef struct s_data
 {
 	int				dead_flag;
 	pthread_mutex_t	dead_lock;
-	pthread_mutex_t	meal_lock; //
+	pthread_mutex_t	meal_lock; // link list   >> the action 
 	pthread_mutex_t	write_lock;
-	t_philo			*philos;
+	t_philo			*philos; //link list thread 
 }					t_data;
 
 int					chk_digit(char *arg);
