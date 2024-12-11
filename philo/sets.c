@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+  //  الفيلو ياخذ يسار  بعدين يوم يبا اليمين يتاكد انها افيلبل 
 #include "philo.h"
 
 void	set_input(t_philo *philo, char **av)
@@ -22,7 +22,7 @@ void	set_input(t_philo *philo, char **av)
 	if (av[5])
 		philo->num_times_to_eat = ft_atoi(av[5]);
 	else
-		philo->num_times_to_eat = -1;
+		philo->num_times_to_eat = -1; // نسجل بينات 
 }
 
 void	set_philos(t_philo *philos, t_data *data, pthread_mutex_t *forks,
@@ -45,9 +45,9 @@ void	set_philos(t_philo *philos, t_data *data, pthread_mutex_t *forks,
 		philos[i].dead = &data->dead_flag;
 		philos[i].l_fork = &forks[i];
 		if (i == 0)
-			philos[i].r_fork = &forks[philos[i].philos_n - 1];
+			philos[i].r_fork = &forks[philos[i].philos_n - 1];  // اذا كان عدد الفورك اليمين  
 		else
-			philos[i].r_fork = &forks[i - 1];
+			philos[i].r_fork = &forks[i - 1]; //  يعني يوم  ييلسون الفيلو   بنقص ،واحد الشوك 
 		i++;
 	}
 }
@@ -60,7 +60,7 @@ void	set_forks(pthread_mutex_t *forks, int philos_n)
 	while (i < philos_n)
 	{
 		pthread_mutex_init(&forks[i], NULL);
-		i++;
+		i++;    // نبدا من زيرو ع عدد الفيلو
 	}
 }
 
@@ -69,6 +69,6 @@ void	set_data(t_data *data, t_philo *philos)
 	data->dead_flag = 0;
 	data->philos = philos;
 	pthread_mutex_init(&data->write_lock, NULL);
-	pthread_mutex_init(&data->dead_lock, NULL);
+	pthread_mutex_init(&data->dead_lock, NULL);    //  نصفر الداتا 
 	pthread_mutex_init(&data->meal_lock, NULL);
 }
