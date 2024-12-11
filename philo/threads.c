@@ -17,7 +17,7 @@ int	dead(t_philo *philo)
 {
 	pthread_mutex_lock(philo->dead_lock);
 	if (*philo->dead == 1)
-		return (pthread_mutex_unlock(philo->dead_lock), 1);
+		return (pthread_mutex_unlock(philo->dead_lock), 1);  //  نعلق الثريد  عشان مايخرب  علينا البروسس 
 	pthread_mutex_unlock(philo->dead_lock);
 	return (0);
 }
@@ -27,35 +27,35 @@ static void	*philo_routine(void *p)
 	t_philo	*philo;
 
 	philo = (t_philo *)p;
-	if (philo->id % 2 == 1)
+	if (philo->id % 2 == 1) //  ياكل  اذا مب مقسوم  على  ٢  اذا كان اثنين   ينام  ٥٠ ميلي سكند 
 		ft_usleep(50);
 	while (!dead(philo))
 	{
-		eating(philo);
+		eating(philo); 
 		sleeping(philo);
 		thinking(philo);
 	}
 	return (p);
 }
 
-int	thread_create(t_data *data, pthread_mutex_t *forks)
+int	thread_create(t_data *data, pthread_mutex_t *forks)  // 
 {
 
 	pthread_t	observer;
 	int			i;
 
-	if (pthread_create(&observer, NULL, &monitor, data->philos) != 0)
+	if (pthread_create(&observer, NULL, &monitor, data->philos) != 0) // نتاكد اذا  فيلو كان صح 
 		destroying("error thread creation", data, forks);
 	i = 0;
-	while (i < data->philos[0].philos_n)
+	while (i < data->philos[0].philos_n) // رقم  للفل،وسفر 
 	{
 		if (pthread_create(&data->philos[i].thread, NULL, &philo_routine,
-				&data->philos[i]) != 0)
+				&data->philos[i]) != 0) // اي دي للفيلو 
 			destroying("error thread creation", data, forks);
 		i++;
 	}
 	i = 0;
-	if (pthread_join(observer, NULL) != 0)
+	if (pthread_join(observer, NULL) != 0) // ندخله ف مين ثرد 
 		destroying("error in joining threads", data, forks);
 	while (i < data->philos[0].philos_n)
 	{
