@@ -21,7 +21,7 @@
 # include <sys/time.h>
 # include <unistd.h>
 
-# define PHILO_MAX 200
+# define PHILO_MAX 200   // عدد الثريد  الماكسيموم 
 
 typedef struct s_philo
 {
