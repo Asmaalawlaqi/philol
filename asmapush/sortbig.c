@@ -9,7 +9,7 @@
 /*   Updated: 2024/05/26 14:22:30 by asmalawl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+// chunks are groups of elements processed sequentially to make sorting large stacks more manageable and efficient.
 #include "push_swap.h"
 
 void	sort100n(t_list **stackA, t_list **stackB)
@@ -70,3 +70,6 @@ int	ft_chunks(t_list **stackA)
 		chnk = 35;
 	return (chnk);
 }
+//
+       // If there are 150 or fewer elements, divide into chunks of 15
+      // If there are more than 150 elements, divide into chunks of 35
