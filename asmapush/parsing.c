@@ -88,3 +88,13 @@ int	pars(t_list **stackA, char **av)
 	cheak_doubls(stackA);
 	return (1);
 }
+
+
+// summary of Error-Handling Steps
+// Double signs (++, --) → Checked in check_double_sign.
+// Non-numeric characters → Checked in join_everthing.
+// Standalone signs → Checked in pars_help.
+// Duplicates → Checked in cheak_doubls.
+// Integer overflow → Checked in ft_atoi.
+// Empty or invalid input → Checked throughout parsing steps.
+// Memory cleanup → Ensures no memory leaks on error.
