@@ -73,3 +73,7 @@ void	rra(t_list **stackA)
 	*stackA = last;
 	ft_putstr_fd("rra\n", 1);
 }
+//sa: Swaps the first two elements of stack A.
+// pb: Pushes the top element from stack A to stack B.
+// ra: Rotates stack A (moves the top element to the bottom).
+// rra: Reverse rotates stack A (moves the bottom element to the top).
