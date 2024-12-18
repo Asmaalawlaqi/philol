@@ -64,10 +64,10 @@ int	main(int ac, char **av)
 	{
 		exit(1);
 	}
-	pars(&stacka, av);
-	if (sorted(&stacka))
+	pars(&stacka, av);// check if there is no unvalied number  // no duplicate numbers.
+	if (sorted(&stacka))  
 	{
-		ft_lstclear(&stacka, free);
+		ft_lstclear(&stacka, free); // if its sorted  , free the memory allocaed 
 		exit(1);
 	}
 	fill_index(&stacka);
