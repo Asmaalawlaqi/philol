@@ -83,3 +83,9 @@ int	sorted(t_list **stackA)
 	}
 	return (1);
 }
+
+//Finds how far the minimum element is from the top of the stack.
+//Finds the number of steps needed to bring an element with a specific index to the top.
+//Assigns an index to each element in the stack based on its value, 
+//with the smallest getting index 1.
+//Checks whether the stack is sorted in ascending order
