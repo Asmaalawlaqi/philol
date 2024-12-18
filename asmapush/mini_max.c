@@ -97,3 +97,10 @@ void	pback(t_list **stackA, t_list **stackB)
 		b = *(stackB);
 	}
 }
+
+//find the int min and start sorting from this
+
+//After finding the minimum and maximum values and indexes, the algorithm uses these values to 
+//perform operations like pa, pb,
+//rb, rrb, etc., to move elements between the two stacks while trying to sort 
+//the values efficiently.
